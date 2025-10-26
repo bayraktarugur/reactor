@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>at.endiansoft</groupId>
+    <artifactId>reactor-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Reactor Parent</name>
+    <description>Parent Maven reactor project to aggregate and build multiple modules.</description>
+
+    <!--
+      This is a Maven reactor (multi-module) parent POM.
+      Add your modules below inside the <modules> section, e.g.:
+
+      <modules>
+          <module>module-a</module>
+          <module>module-b</module>
+      </modules>
+
+      For each module directory, create its own pom.xml with this parent:
+
+      <parent>
+          <groupId>com.example</groupId>
+          <artifactId>reactor-parent</artifactId>
+          <version>1.0.0-SNAPSHOT</version>
+          <relativePath>..</relativePath>
+      </parent>
+
+      Then import the root pom.xml in your IDE to load all modules.
+    -->
+    <modules>
+        <module>../cityflow_BE</module>
+        <module>../cityflow_FE</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>17</maven.compiler.release>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.11.0</version>
+                    <configuration>
+                        <release>${maven.compiler.release}</release>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
